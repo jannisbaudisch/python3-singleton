@@ -1,11 +1,12 @@
-from setuptools import setup
+from setuptools import setup, find_packages
+
 
 setup(
-    name='singleton',
+    name='testable-singleton',
     version='0.1',
 
     author='Jannis Baudisch',
     author_email='question@jannisbaudisch.de',
 
-    packages=['singleton'],
+    packages=find_packages(),
 )
