@@ -3,10 +3,15 @@ from singleton.decorator import singleton
 
 
 @pytest.fixture
-def enable_singleton():
-    singleton._testing = False
-    singleton._instance = None
+def isolate_singleton():
+    testing = singleton._testing
+    singleton.testing(False)
     yield singleton
-    singleton.testing()
+    singleton.testing(testing)
 
-
+@pytest.fixture
+def disable_singleton():
+    testing = singleton._testing
+    singleton.testing(True)
+    yield singleton
+    singleton.testing(testing)
